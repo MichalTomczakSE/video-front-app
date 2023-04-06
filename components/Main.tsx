@@ -6,7 +6,7 @@ interface MainProps {
 
 export const Main = ({ children }: MainProps) => {
   return (
-    <main>
+    <main className="flex grow max-w-screen-2xl mx-auto">
       {children}
     </main>
   );
