@@ -5,7 +5,7 @@ interface AsideNavigationProps {
   isOpen: boolean;
 }
 
-export const AsideNavigation = ({ isOpen }: AsideNavigationProps) => {
+export const SmallDisplayNavigation = ({ isOpen }: AsideNavigationProps) => {
   const router = useRouter()
   if (!isOpen) return null;
 
