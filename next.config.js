@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   trailingSlash: true,
   images: {
-    domains: [],
+    domains: ['i.ytimg.com'],
     formats: ["image/avif", "image/webp"]
   }
 };
