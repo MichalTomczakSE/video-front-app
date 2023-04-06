@@ -17,7 +17,7 @@ export const Modal = ({ isOpen, onClose, children }: ModalProps) => {
       className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center "
       id="wrapper"
       onClick={handleClose}>
-      <div className="container w-1/2 flex flex-col">
+      <div className="container max-w-lg flex flex-col">
         <button
           className="text-white text-xl place-self-end"
           onClick={() => onClose()}>
