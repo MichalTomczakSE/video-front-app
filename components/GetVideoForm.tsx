@@ -9,6 +9,7 @@ interface fetchDataProps {
   thumbnail: string;
   error: string;
   title: string;
+  duration: string;
 
 }
 
@@ -24,7 +25,7 @@ export const GetVideoForm = () => {
     setIsLoading(true);
     setFetchData(null);
 
-    const res = await fetch(`http://localhost:3000/video/check`, {
+    const res = await fetch(`http://localhost:3000/video/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -63,6 +64,7 @@ export const GetVideoForm = () => {
           imageSource={fetchData.thumbnail}
           title={fetchData.title}
           videoSource={fetchData.videoURL}
+          duration={fetchData.duration}
         />}
     </div>
   );
