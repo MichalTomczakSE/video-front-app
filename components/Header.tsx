@@ -2,9 +2,12 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { SmallDisplayNavigation } from "@/components/SmallDisplayNavigation";
+import { Modal } from "@/components/Modal";
+import { LoginForm } from "@/components/LoginForm";
 
 export const Header = () => {
   const [showNavigation, setShowNavigation] = useState<boolean>(false);
+  const [showLoginModal, setShowLoginModal] = useState<boolean>(false);
 
   const handleMenuClick = () => {
   setShowNavigation(!showNavigation);
@@ -38,12 +41,15 @@ export const Header = () => {
               "selected font-bold text-sky-500" : ""}`}>
             Create Account
           </Link>
-          <Link
-            href="/login"
-            className={`px-4 ${router.pathname == "/login" ?
-              "selected font-bold text-sky-500" : ""}`}>
+          <button
+            className={`px-4`}
+            onClick={() => setShowLoginModal(true)}
+          >
             Sign In
-          </Link>
+          </button>
+          <Modal isOpen={showLoginModal} onClose={() => setShowLoginModal(false)}>
+            <LoginForm/>
+          </Modal>
         </div>
       </nav>
     </header>
