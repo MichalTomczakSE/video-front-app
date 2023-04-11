@@ -4,11 +4,23 @@ import { useState } from "react";
 import { SmallDisplayNavigation } from "@/components/SmallDisplayNavigation";
 import { Modal } from "@/components/Modal";
 import { LoginForm } from "@/components/LoginForm";
+import { RegisterForm } from "@/components/RegisterForm";
 
 export const Header = () => {
   const [showNavigation, setShowNavigation] = useState<boolean>(false);
   const [showLoginModal, setShowLoginModal] = useState<boolean>(false);
+  const [showLoginForm, setShowLoginForm] = useState<boolean>(false);
+  const [showRegisterForm, setShowRegisterForm] = useState<boolean>(false);
 
+  const hideAllModals = () => {
+    setShowLoginModal(false);
+    setShowRegisterForm(false);
+    setShowLoginForm(false);
+  }
+  const toggleUserForm = () => {
+    setShowLoginForm(!showLoginForm);
+    setShowRegisterForm(!showRegisterForm);
+  }
   const handleMenuClick = () => {
   setShowNavigation(!showNavigation);
   }
@@ -43,12 +55,18 @@ export const Header = () => {
           </Link>
           <button
             className={`px-4`}
-            onClick={() => setShowLoginModal(true)}
+            onClick={() => {
+              setShowLoginModal(true);
+              setShowLoginForm(true);
+            }}
           >
             Sign In
           </button>
-          <Modal isOpen={showLoginModal} onClose={() => setShowLoginModal(false)}>
-            <LoginForm/>
+          <Modal isOpen={showLoginModal} onClose={() => hideAllModals()}>
+            {showLoginForm && <LoginForm
+            createAccount={() => toggleUserForm()}/>}
+            {showRegisterForm && <RegisterForm
+            signIn={() => toggleUserForm()}/>}
           </Modal>
         </div>
       </nav>
