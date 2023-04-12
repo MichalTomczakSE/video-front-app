@@ -11,7 +11,7 @@ export const VideoCard = ({ imageSource, title, videoSource, duration }: VideoCa
 
 
   return (
-    <div className="grid grid-cols-2 gap-4 mt-10">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-10">
       <div className="border p-5 sm:p-6 lg:px-14">
         <div className="text-xs md:text-base font-bold py-3">
           {title}
