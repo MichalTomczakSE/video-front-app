@@ -5,7 +5,7 @@ import { VideoCard } from "@/components/VideoCard";
 
 interface fetchDataProps {
   valid: boolean;
-  videoURL: string;
+  videoUrl: string;
   thumbnail: string;
   error: string;
   title: string;
@@ -35,7 +35,6 @@ export const GetVideoForm = () => {
     const data = await res.json();
     await setFetchData(data);
     setIsLoading(false);
-    console.log(data);
 
 
   };
@@ -63,7 +62,7 @@ export const GetVideoForm = () => {
         <VideoCard
           imageSource={fetchData.thumbnail}
           title={fetchData.title}
-          videoSource={fetchData.videoURL}
+          videoSource={fetchData.videoUrl}
           duration={fetchData.duration}
         />}
     </div>
