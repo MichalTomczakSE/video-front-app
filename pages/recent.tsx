@@ -1,6 +1,9 @@
+import { RecentVideos } from "@/components/RecentVideos";
+
 const Recent = () => {
+
   return (
-    <div>Hello</div>
+    <RecentVideos/>
   )
 }
 
